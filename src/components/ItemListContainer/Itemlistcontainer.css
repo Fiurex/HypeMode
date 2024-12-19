@@ -1,0 +1,80 @@
+.itemlistcontainer{
+    padding: 20px 50px;
+    background-color: #202020;
+    flex-direction: column;
+}
+.itemlistcontainer .itemlist{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-container {
+    display: grid;
+    grid-template: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+    overflow: hidden;
+    color: whitesmoke;
+  }
+  .card {
+    background: linear-gradient(145deg, #202020, #1a1a1a);
+    border: 2px solid #00ffff; /* Color neón brillante */
+    border-radius: 15px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3), 0 6px 6px rgba(0, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.5), 0 8px 8px rgba(0, 255, 255, 0.3);
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 50%; 
+    object-fit: cover;
+  }
+  .card-content {
+    padding: 15px;
+    text-align: center;
+    
+  }
+  
+  .card-title {
+    align-items: center;
+    font-size: 1.5rem;
+    color: whitesmoke; /* Color neón */
+    margin-bottom: 10px;
+    padding: 20px;
+  }
+  .card-price {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .card-button {
+    background: #ff00ff; /* Fondo neón */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+    align-items: center;
+  }
+  
+  .card-button:hover {
+    background: #ff66ff;
+    box-shadow: 0 5px 15px rgba(255, 0, 255, 0.5);
+  }
+  .greeting-text{
+    color:  #ff66ff;
+  }

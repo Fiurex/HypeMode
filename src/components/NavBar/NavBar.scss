@@ -10,14 +10,16 @@
    .brand {
 
     display: flex;
+    color:#ff00ff;
     justify-content: space-around;
     .logo {
-        max-width: auto;
-        height: auto;
+    
+        width: 50px;
         justify-content: left;
       }
       .marca{
         line-height: 50px;
+        width: 50px;
         text-align: center;
       }
 
@@ -28,8 +30,18 @@
     .categories{
         display: flex;
         list-style: none;
-        li{
+        a{
             padding: 0 10px;
         }
     }
+}
+.Contador{
+    float:right;
+    padding: 0 10px;
+}
+.carrito{
+    display: flex;
+}
+.category{
+    color:#ff00ff;
 }
