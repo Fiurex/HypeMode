@@ -13,7 +13,7 @@
     color:#ff00ff;
     justify-content: space-around;
     .logo {
-    
+        height: 50px;
         width: 50px;
         justify-content: left;
       }
@@ -44,4 +44,12 @@
 }
 .category{
     color:#ff00ff;
+}
+
+.backbutton{
+    background-color: rgb(27, 27, 27);
+    border: 1px solid #ff00ff;
+    border-radius: 5px;
+    color:#ff00ff;
+    font-size: 15px;
 }

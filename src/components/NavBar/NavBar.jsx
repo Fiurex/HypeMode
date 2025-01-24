@@ -6,7 +6,7 @@ const NavBar =() => {
     const navigate = useNavigate()
     return (
         <nav className="NavBar">
-            <button onClick={()=> navigate (-1)}>Ir hacia atras</button>
+            <button onClick={()=> navigate (-1)} className="backbutton" >Ir hacia atras</button>
             <Link to="/" className="brand">
                 <img src="./src/assets/images/hypemode.webp" alt="" className="logo" />
                 <p className="marca">HypeMode</p>

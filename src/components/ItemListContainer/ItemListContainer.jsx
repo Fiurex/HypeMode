@@ -1,8 +1,8 @@
 import { useState , useEffect } from "react"
-import { getProducts } from "../../Data/Data.js";
 import ItemList from "./ItemList.jsx"
 import { useParams } from "react-router-dom";
-import { ScaleLoader } from "react-spinners";
+import { collection, getDocs, query, where } from "firebase/firestore"
+import db from "../../DB/db.js";
 import "./Itemlistcontainer.css"
 
 const ItemListContainer = ({greeting}) => {
@@ -10,35 +10,59 @@ const ItemListContainer = ({greeting}) => {
   const[loading, setloading] = useState(false)
 
   const {idCategory} = useParams()
+  const collectionName =  collection (db, "products")
 
-  useEffect(()=>{
-    setloading(true)
-    getProducts()
-    .then((data)=> {
+  const getProducts = async () => {
+    try{
+      const dataDb = await getDocs(collectionName)
+      
+      const data = dataDb.docs.map((productDb)=> {
+        return {id: productDb.id, ...productDb.data()}
+      })
+      setProducts(data)
+      
 
-      if(idCategory){
-        const productsfilter = data.filter( ( product) => product.category === idCategory)
-        setProducts(productsfilter)
-      }else{
-      setProducts(data)}
-    })
-    .catch((error)=>{
-      console.error(error)
-    })
-    .finally(()=>{
-      setloading(false)
-    })
+    } catch (error) {
+    
+      console.log(error)
+     }
+
+
+  }
+
+  const getProductsByCategory = async() => {
+    try {
+      const q = query( collectionName , where("category", "==", idCategory ) )
+      const dataDb = await getDocs(q)
   
+      const data = dataDb.docs.map((productDb) => {
+        return { id: productDb.id, ...productDb.data() }
+      })
+      
+      setProducts(data)
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    if(idCategory){
+      getProductsByCategory()
+    }else{
+      getProducts()
+    }
+   
   }, [idCategory])
-  
   
 
   return (
     <div className="itemlistcontainer">
         <h1 className="greeting-text"> {greeting} </h1>
-        {
-          loading === true ? ( <div style={{ height: "80vh", display: "flex", justifyContent: "center", alignItems: "center" }}> <ScaleLoader color="Pink" /> </div> ) : (<ItemList products={products}/>)
-        }
+      
+         
+                <ItemList products={products} loading ={loading}/>
+        
         
     </div>
   )

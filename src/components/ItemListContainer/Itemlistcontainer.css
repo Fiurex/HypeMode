@@ -18,6 +18,7 @@
     align-items: center;
     overflow: hidden;
     color: whitesmoke;
+    text-decoration: none;
   }
   .card {
     background: linear-gradient(145deg, #202020, #1a1a1a);
@@ -42,6 +43,7 @@
   .card-content {
     padding: 15px;
     text-align: center;
+    text-decoration: none;
     
   }
   
@@ -51,6 +53,7 @@
     color: whitesmoke; /* Color neón */
     margin-bottom: 10px;
     padding: 20px;
+    text-decoration: none !important;
   }
   .card-price {
     font-size: 1rem;
@@ -78,3 +81,4 @@
   .greeting-text{
     color:  #ff66ff;
   }
+
